@@ -2,7 +2,7 @@
 # CASE STUDY QUESTIONS
 
 ## 1. What is the total amount each customer spent at the restaurant?
----sql
+'''ruby
 
 SELECT s.customer_id, 
 	   SUM(m.price) AS total_amount_spent
@@ -10,14 +10,19 @@ FROM dbo.sales AS s
 JOIN dbo.menu AS m
 	  ON s.product_id = m.product_id
 GROUP BY s.customer_id;
-/
----
+
+'''
+
 ## 2. How many days has each customer visited the restaurant?
 
+''''
+'''
 SELECT customer_id, 
 	   COUNT(DISTINCT(order_date)) AS days_visited
 FROM dbo.sales
 GROUP BY customer_id;
+'''
+''''
 
 ## 3. What was the first item from the menu purchased by each customer?
 
