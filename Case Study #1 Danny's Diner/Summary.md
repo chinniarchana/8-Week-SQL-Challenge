@@ -1,7 +1,10 @@
 
 # CASE STUDY QUESTIONS
 
+-----------------------------------------------------------------------------------------------------------------------------------
+
 ## 1. What is the total amount each customer spent at the restaurant?
+
 ```sql
 
 SELECT s.customer_id, 
@@ -12,8 +15,13 @@ JOIN dbo.menu AS m
 GROUP BY s.customer_id;
 
 ```
+### Solution
+![Sol1](https://user-images.githubusercontent.com/70010985/181084022-da8aaf6b-cac2-48f3-a9b6-add8e839dc38.JPG)
+
+-----------------------------------------------------------------------------------------------------------------------------------
 
 ## 2. How many days has each customer visited the restaurant?
+
 ```sql
 
 SELECT customer_id, 
@@ -22,6 +30,10 @@ FROM dbo.sales
 GROUP BY customer_id;
 
 ```
+### Solution
+![Sol2](https://user-images.githubusercontent.com/70010985/181084146-6948a062-6725-4d83-af17-9ec943538049.JPG)
+
+-----------------------------------------------------------------------------------------------------------------------------------
 
 ## 3. What was the first item from the menu purchased by each customer?
 
@@ -46,6 +58,10 @@ GROUP BY customer_id,
 	     product_name;
 	 
 ```
+### Solution
+![Sol3](https://user-images.githubusercontent.com/70010985/181084252-4d313b28-ce4a-457d-a5ae-e1dac8b979dd.JPG)
+
+-----------------------------------------------------------------------------------------------------------------------------------
 
 ## 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
 
@@ -60,6 +76,10 @@ GROUP BY product_name
 ORDER BY most_purchased DESC
 
 ```
+### Solution
+![Sol4](https://user-images.githubusercontent.com/70010985/181084569-fc417be6-bfb0-4750-ad25-97154e753f42.JPG)
+
+-----------------------------------------------------------------------------------------------------------------------------------
 
 ## 5. Which item was the most popular for each customer?
 
@@ -86,6 +106,10 @@ WHERE rank = 1
 ORDER BY total_orders DESC
 
 ```
+### Solution
+![Sol5](https://user-images.githubusercontent.com/70010985/181084610-3cdc3453-fb71-45d2-8cb6-5f393c86bff5.JPG)
+
+-----------------------------------------------------------------------------------------------------------------------------------
 
 ## 6. Which item was purchased first by the customer after they became a member?
 
@@ -111,6 +135,10 @@ JOIN menu m
 Where rank = 1;
 
 ```
+### Solution
+![Sol6](https://user-images.githubusercontent.com/70010985/181084652-46d61a2b-950d-4caf-845f-687cdb491dc3.JPG)
+
+-----------------------------------------------------------------------------------------------------------------------------------
 
 ## 7. Which item was purchased just before the customer became a member?
 
@@ -136,8 +164,14 @@ JOIN menu m
 Where rank = 1;
 
 ```
+### Solution
+![Sol7](https://user-images.githubusercontent.com/70010985/181084686-d62ddaab-ae11-4e96-b177-515aa841f841.JPG)
+
+-----------------------------------------------------------------------------------------------------------------------------------
 
 ## 8. What is the total items and amount spent for each member before they became a member?
+
+``` sql
 
 SELECT s.customer_id, 
 	   COUNT(DISTINCT s.product_id) AS total_items, 
@@ -151,6 +185,10 @@ WHERE order_date < join_date
 GROUP BY s.customer_id;
  
 ```
+### Solution
+![Sol8](https://user-images.githubusercontent.com/70010985/181084725-e60c9a92-bacb-4c68-becd-d5f6e7823a58.JPG)
+
+-----------------------------------------------------------------------------------------------------------------------------------
 
 ## 9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier how many points would each customer have?
 
@@ -167,6 +205,11 @@ JOIN dbo.sales AS s
 GROUP BY customer_id
 
 ```
+### Solution
+![Sol9](https://user-images.githubusercontent.com/70010985/181084763-101f3e02-aa47-4201-979e-5eeb19dac64a.JPG)
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
 ## 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items,
 
 not just sushi how many points do customer A and B have at the end of January?
@@ -189,7 +232,11 @@ WHERE s.order_date <= '2021-01-31'
 GROUP BY s.customer_id;
 
 ```
-----------------------------------------------------------------------------------------
+### Solution
+![Sol10](https://user-images.githubusercontent.com/70010985/181084821-c9578b09-5d4f-452d-ae66-4f6876a1b852.JPG)
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
 # BONUS QUESTIONS
 
 ## Join all the data. 
@@ -215,6 +262,10 @@ LEFT JOIN members AS mem
    ON s.customer_id = mem.customer_id;
 
 ``` 
+### Solution
+![B1](https://user-images.githubusercontent.com/70010985/181084869-d5b20cef-3162-4d86-87ba-22f590f31f89.JPG)
+
+-----------------------------------------------------------------------------------------------------------------------------------
 
 ## Rank All The Things
 /* Danny also requires further information about the ranking of customer products, but 
@@ -246,4 +297,7 @@ SELECT *,
 FROM table_cte
 
 ```
------------------------------------------------------------------------------------------
+# Solution 
+![B2](https://user-images.githubusercontent.com/70010985/181083444-cfb4a532-5f72-4967-a4fb-715104b0d3ce.JPG)
+
+-----------------------------------------------------------------------------------------------------------------------------------
