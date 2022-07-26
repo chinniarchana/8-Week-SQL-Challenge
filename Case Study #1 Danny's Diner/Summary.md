@@ -14,17 +14,18 @@ GROUP BY s.customer_id;
 ```
 
 ## 2. How many days has each customer visited the restaurant?
+```sql
 
-''''
-'''
 SELECT customer_id, 
 	   COUNT(DISTINCT(order_date)) AS days_visited
 FROM dbo.sales
 GROUP BY customer_id;
-'''
-''''
+
+```
 
 ## 3. What was the first item from the menu purchased by each customer?
+
+```sql
 
 WITH menu_purchased_cte AS 
 (
@@ -43,8 +44,12 @@ FROM menu_purchased_cte
 WHERE rank = 1
 GROUP BY customer_id, 
 	     product_name;
+	 
+```
 
 ## 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
+
+```sql
 
 SELECT TOP 1 product_name, 
 	   COUNT(m.product_id) AS most_purchased
@@ -54,7 +59,11 @@ JOIN dbo.sales AS s
 GROUP BY product_name
 ORDER BY most_purchased DESC
 
+```
+
 ## 5. Which item was the most popular for each customer?
+
+```sql
 
 WITH popular_item_cte AS
 (
@@ -76,7 +85,11 @@ FROM popular_item_cte
 WHERE rank = 1
 ORDER BY total_orders DESC
 
+```
+
 ## 6. Which item was purchased first by the customer after they became a member?
+
+```sql
 
 WITH member_purchase_cte AS 
 (
@@ -97,8 +110,11 @@ JOIN menu m
 	  ON mp.product_id = m.product_id
 Where rank = 1;
 
+```
+
 ## 7. Which item was purchased just before the customer became a member?
 
+```sql
 
 WITH member_purchase_cte AS 
 (
@@ -119,6 +135,8 @@ JOIN menu m
 	  ON mp.product_id = m.product_id
 Where rank = 1;
 
+```
+
 ## 8. What is the total items and amount spent for each member before they became a member?
 
 SELECT s.customer_id, 
@@ -132,7 +150,11 @@ JOIN dbo.members mem
 WHERE order_date < join_date
 GROUP BY s.customer_id;
  
+```
+
 ## 9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier how many points would each customer have?
+
+```sql
 
 SELECT s.customer_id,
 	SUM(CASE 
@@ -144,9 +166,12 @@ JOIN dbo.sales AS s
 	  ON m.product_id = s.product_id
 GROUP BY customer_id
 
-## 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, 
+```
+## 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items,
 
 not just sushi how many points do customer A and B have at the end of January?
+
+```sql
 
 SELECT s.customer_id, 
    SUM(CASE
@@ -163,6 +188,7 @@ LEFT JOIN dbo.menu AS m
 WHERE s.order_date <= '2021-01-31'
 GROUP BY s.customer_id;
 
+```
 ----------------------------------------------------------------------------------------
 # BONUS QUESTIONS
 
@@ -170,6 +196,8 @@ GROUP BY s.customer_id;
 /* The following questions are related creating basic data tables that Danny and his team can 
 use to quickly derive insights without needing to join the underlying tables using SQL.
 Recreate the table which contains customer_id, order_date, product_name, price, member(Y/N).*/
+
+```sql
 
 SELECT s.customer_id, 
        s.order_date, 
@@ -186,10 +214,14 @@ LEFT JOIN menu AS m
 LEFT JOIN members AS mem
    ON s.customer_id = mem.customer_id;
 
+``` 
+
 ## Rank All The Things
 /* Danny also requires further information about the ranking of customer products, but 
 he purposely does not need the ranking for non-member purchases so he expects null 
 ranking values for the records when customers are not yet part of the loyalty program.*/
+
+```sql
 
 WITH table_cte AS
 (
@@ -213,4 +245,5 @@ SELECT *,
   END AS ranking
 FROM table_cte
 
+```
 -----------------------------------------------------------------------------------------
