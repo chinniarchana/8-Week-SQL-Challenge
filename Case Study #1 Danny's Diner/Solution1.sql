@@ -9,13 +9,13 @@ CASE STUDY: https://8weeksqlchallenge.com/case-study-1/
 
 */
 
------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 -- CREATE SCHEMA or DATABASE
 
 CREATE DATABASE DannysDiner;
 USE DannysDiner
 
------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
 -- CREATE TABLE AND INSERT DATA
 
 CREATE TABLE sales (
@@ -64,7 +64,7 @@ VALUES
   ('A', '2021-01-07'),
   ('B', '2021-01-09');
 
------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
 -- REVIEW TABLES
 
 SELECT *
@@ -76,8 +76,9 @@ FROM dbo.menu
 SELECT * 
 FROM dbo.members
 
------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 -- CASE STUDY QUESTIONS
+------------------------------------------------------------------------------------------------
 
 -- 1. What is the total amount each customer spent at the restaurant?
 
@@ -88,12 +89,16 @@ JOIN dbo.menu AS m
 	  ON s.product_id = m.product_id
 GROUP BY s.customer_id;
 
+------------------------------------------------------------------------------------------------
+
 -- 2. How many days has each customer visited the restaurant?
 
 SELECT customer_id, 
 	   COUNT(DISTINCT(order_date)) AS days_visited
 FROM dbo.sales
 GROUP BY customer_id;
+
+-----------------------------------------------------------------------------------------------
 
 -- 3. What was the first item from the menu purchased by each customer?
 
@@ -115,6 +120,8 @@ WHERE rank = 1
 GROUP BY customer_id, 
 	     product_name;
 
+--------------------------------------------------------------------------------------------
+
 -- 4. What is the most purchased item on the menu 
 --    and how many times was it purchased by all customers?
 
@@ -125,6 +132,8 @@ JOIN dbo.sales AS s
 		ON m.product_id = s.product_id
 GROUP BY product_name
 ORDER BY most_purchased DESC
+
+---------------------------------------------------------------------------------------
 
 -- 5. Which item was the most popular for each customer?
 
@@ -148,6 +157,8 @@ FROM popular_item_cte
 WHERE rank = 1
 ORDER BY total_orders DESC
 
+----------------------------------------------------------------------------------------
+
 -- 6. Which item was purchased first by the customer after they became a member?
 
 WITH member_purchase_cte AS 
@@ -168,6 +179,8 @@ FROM member_purchase_cte mp
 JOIN menu m
 	  ON mp.product_id = m.product_id
 Where rank = 1;
+
+----------------------------------------------------------------------------------------
 
 -- 7. Which item was purchased just before the customer became a member?
 
@@ -191,6 +204,8 @@ JOIN menu m
 	  ON mp.product_id = m.product_id
 Where rank = 1;
 
+------------------------------------------------------------------------------------------
+
 -- 8. What is the total items and amount spent for each member 
 -- before they became a member?
 
@@ -205,6 +220,8 @@ JOIN dbo.members mem
 WHERE order_date < join_date
 GROUP BY s.customer_id;
  
+---------------------------------------------------------------------------------------------
+
 -- 9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier 
 -- how many points would each customer have?
 
@@ -217,6 +234,8 @@ FROM dbo.menu AS m
 JOIN dbo.sales AS s
 	  ON m.product_id = s.product_id
 GROUP BY customer_id
+
+------------------------------------------------------------------------------------------
 
 -- 10. In the first week after a customer joins the program 
 -- (including their join date) they earn 2x points on all items, not just sushi
@@ -239,6 +258,7 @@ GROUP BY s.customer_id;
 
 ----------------------------------------------------------------------------------------
 -- BONUS QUESTIONS
+----------------------------------------------------------------------------------------
 
 -- Join all the data. 
 /* The following questions are related creating basic data tables that Danny and his team can 
@@ -259,6 +279,8 @@ LEFT JOIN menu AS m
    ON s.product_id = m.product_id
 LEFT JOIN members AS mem
    ON s.customer_id = mem.customer_id;
+
+--------------------------------------------------------------------------------------------
 
 -- Rank All The Things
 /* Danny also requires further information about the ranking of customer products, but 
@@ -287,4 +309,4 @@ SELECT *,
   END AS ranking
 FROM table_cte
 
------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
