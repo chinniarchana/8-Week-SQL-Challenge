@@ -1,10 +1,10 @@
 # 8 Week SQL Challenge 
 
 ## Case Study Solutions
-* [Case Study #1: Danny's Diner](https://github.com/chinniarchana/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20Danny's%20Diner/Solution1.sql)
+* ![Case Study #1: Danny's Diner](https://github.com/chinniarchana/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20Danny's%20Diner/Solution1.sql)
 
 # Case Study #1: Danny's Diner
-![CaseStudy1](https://user-images.githubusercontent.com/70010985/181066758-3643e5f0-f084-4c01-a921-15bf610c5054.png | width = 100)
+![](https://user-images.githubusercontent.com/70010985/181066758-3643e5f0-f084-4c01-a921-15bf610c5054.png | width = 100)
 
 # Task
 
