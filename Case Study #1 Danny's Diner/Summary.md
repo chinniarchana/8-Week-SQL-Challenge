@@ -10,8 +10,8 @@ especially about their visiting patterns, how much money they’ve spent and als
 # Case Study Questions
 
 # 1. What is the total amount each customer spent at the restaurant?
-![Code1](https://user-images.githubusercontent.com/70010985/181073783-22b4920d-70a3-4cb9-9e5b-4d66a67e0dd7.JPG)
+![Code1](https://user-images.githubusercontent.com/70010985/181073783-22b4920d-70a3-4cb9-9e5b-4d66a67e0dd7.JPG width="400")
 
-Solution
+# Solution
 ![Sol1](https://user-images.githubusercontent.com/70010985/181074047-15f63427-17f5-4816-978c-2a70e304d905.JPG)
 
