@@ -20,6 +20,7 @@ Danny’s Diner is in need of your assistance to help the restaurant stay afloat
 # Task
 
 Danny wants to use the data to answer a few simple questions about his customers, especially about their visiting patterns, how much money they’ve spent and also which menu items are their favourite.
+
 -----------------------------------------------------------------------------------------------------------------------------------
 # CASE STUDY SOLUTIONS 
 
@@ -35,7 +36,9 @@ JOIN dbo.menu AS m
 GROUP BY s.customer_id;
 
 ```
-### Solution
+
+Solution
+
 ![Sol1](https://user-images.githubusercontent.com/70010985/181084022-da8aaf6b-cac2-48f3-a9b6-add8e839dc38.JPG)
 
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -50,7 +53,8 @@ FROM dbo.sales
 GROUP BY customer_id;
 
 ```
-### Solution
+Solution
+
 ![Sol2](https://user-images.githubusercontent.com/70010985/181084146-6948a062-6725-4d83-af17-9ec943538049.JPG)
 
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -78,7 +82,8 @@ GROUP BY customer_id,
 	     product_name;
 	 
 ```
-### Solution
+Solution
+
 ![Sol3](https://user-images.githubusercontent.com/70010985/181084252-4d313b28-ce4a-457d-a5ae-e1dac8b979dd.JPG)
 
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -96,7 +101,8 @@ GROUP BY product_name
 ORDER BY most_purchased DESC
 
 ```
-### Solution
+Solution
+
 ![Sol4](https://user-images.githubusercontent.com/70010985/181084569-fc417be6-bfb0-4750-ad25-97154e753f42.JPG)
 
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -126,7 +132,8 @@ WHERE rank = 1
 ORDER BY total_orders DESC
 
 ```
-### Solution
+Solution
+
 ![Sol5](https://user-images.githubusercontent.com/70010985/181084610-3cdc3453-fb71-45d2-8cb6-5f393c86bff5.JPG)
 
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -155,7 +162,8 @@ JOIN menu m
 Where rank = 1;
 
 ```
-### Solution
+Solution
+
 ![Sol6](https://user-images.githubusercontent.com/70010985/181084652-46d61a2b-950d-4caf-845f-687cdb491dc3.JPG)
 
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -184,7 +192,8 @@ JOIN menu m
 Where rank = 1;
 
 ```
-### Solution
+Solution
+
 ![Sol7](https://user-images.githubusercontent.com/70010985/181084686-d62ddaab-ae11-4e96-b177-515aa841f841.JPG)
 
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -205,7 +214,8 @@ WHERE order_date < join_date
 GROUP BY s.customer_id;
  
 ```
-### Solution
+Solution
+
 ![Sol8](https://user-images.githubusercontent.com/70010985/181084725-e60c9a92-bacb-4c68-becd-d5f6e7823a58.JPG)
 
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -225,7 +235,8 @@ JOIN dbo.sales AS s
 GROUP BY customer_id
 
 ```
-### Solution
+Solution
+
 ![Sol9](https://user-images.githubusercontent.com/70010985/181084763-101f3e02-aa47-4201-979e-5eeb19dac64a.JPG)
 
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -252,7 +263,8 @@ WHERE s.order_date <= '2021-01-31'
 GROUP BY s.customer_id;
 
 ```
-### Solution
+Solution
+
 ![Sol10](https://user-images.githubusercontent.com/70010985/181084821-c9578b09-5d4f-452d-ae66-4f6876a1b852.JPG)
 
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -282,7 +294,8 @@ LEFT JOIN members AS mem
    ON s.customer_id = mem.customer_id;
 
 ``` 
-### Solution
+Solution
+
 ![B1](https://user-images.githubusercontent.com/70010985/181084869-d5b20cef-3162-4d86-87ba-22f590f31f89.JPG)
 
 -----------------------------------------------------------------------------------------------------------------------------------
@@ -317,7 +330,8 @@ SELECT *,
 FROM table_cte
 
 ```
-# Solution 
+Solution 
+
 ![B2](https://user-images.githubusercontent.com/70010985/181083444-cfb4a532-5f72-4967-a4fb-715104b0d3ce.JPG)
 
 -----------------------------------------------------------------------------------------------------------------------------------
