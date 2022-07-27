@@ -1,19 +1,30 @@
 # 8 Week SQL Challenge 
 
-## Case Study Solutions
-* [Case Study #1: Danny's Diner](https://github.com/chinniarchana/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20Danny's%20Diner/Solution1.sql)
+# :ramen: Case Study #1: Danny's Diner 
+* [View Solution](https://github.com/chinniarchana/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20Danny's%20Diner/Solution1.sql)
+* [View Summary](https://github.com/chinniarchana/8-Week-SQL-Challenge/blob/main/Case%20Study%20%231%20Danny's%20Diner/Summary.md)
 
-# Case Study #1: Danny's Diner
+# :ramen: Case Study #1: Danny's Diner 
 ![CaseStudy1](https://user-images.githubusercontent.com/70010985/181068596-11cdfb30-5eb3-4882-b377-ba9ea9cb871f.png)
 
+# Introduction
+
+Danny seriously loves Japanese food so in the beginning of 2021, he decides to embark upon a risky venture and opens up a cute little restaurant that sells his 3 favourite foods: sushi, curry and ramen.
+
+Danny’s Diner is in need of your assistance to help the restaurant stay afloat - the restaurant has captured some very basic data from their few months of operation but have no idea how to use their data to help them run the business.
+
+## Danny has shared with you 3 key datasets for this case study:
+
+* sales
+* menu
+* members
+
+# Entity Relationship Diagram
+![EntityFig1](https://user-images.githubusercontent.com/70010985/181161751-ec896ec5-78d8-448a-91c3-7d65b6e631ff.JPG)
 
 # Task
 
 Danny wants to use the data to answer a few simple questions about his customers, especially about their visiting patterns, how much money they’ve spent and also which menu items are their favourite.
-
-# Entity Relationship Diagram
-
-![EntityFig1](https://user-images.githubusercontent.com/70010985/181067199-90912c62-1ac9-45ed-a029-166760e35f0b.JPG)
 
 # Case Study Questions
 
